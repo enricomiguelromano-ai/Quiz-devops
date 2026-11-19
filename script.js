@@ -155,8 +155,9 @@ function updateProgress() {
   $('#progressPercent').textContent = `${Math.round((n / questions.length) * 100)}% concluído`;
   $('#scoreLive').textContent = state.score;
   document.querySelectorAll('.mission-item').forEach((item, i) => {
+    // Mostra somente a questão atual; não revela o resultado das questões anteriores.
     item.classList.toggle('current', i === state.index);
-    item.classList.toggle('done', state.answered[i]);
+    item.classList.remove('done');
   });
 }
 function setupQuestion() {
