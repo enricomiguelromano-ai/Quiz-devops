@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#f7eee8" />
+  <meta name="description" content="Quiz interativo sobre Cultura DevOps: conceitos, CAMS, ciclo, CI/CD e ferramentas." />
+  <title>Missão DevOps — Quiz Interativo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Missão DevOps início">
+        <span class="brand-mark"><span></span><span></span><span></span></span>
+        <span>missão<span class="brand-accent">devops</span></span>
+      </a>
+      <div class="topbar-right">
+        <span class="topic-pill"><span class="status-dot"></span> DESAFIO DE TECNOLOGIA</span>
+        <button class="sound-toggle" id="soundToggle" type="button" aria-label="Ativar ou desativar efeitos sonoros" title="Ativar/desativar sons">
+          <span id="soundIcon">♫</span>
+        </button>
+      </div>
+    </header>
+
+    <section class="screen start-screen active" id="startScreen">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span> APRENDA NA PRÁTICA</div>
+        <h1>Uma equipe.<br><span>Um só objetivo.</span></h1>
+        <p class="hero-description">Entre para uma equipe de tecnologia e complete 10 desafios sobre a cultura DevOps. Resolva situações, conecte conceitos e coloque um site no ar.</p>
+        <div class="hero-meta">
+          <div class="meta-item"><span class="meta-icon">◈</span><div><strong>10 desafios</strong><small>teoria + prática</small></div></div>
+          <div class="meta-divider"></div>
+          <div class="meta-item"><span class="meta-icon">⏱</span><div><strong>Ritmo livre</strong><small>sem cronômetro</small></div></div>
+        </div>
+        <button class="primary-button start-button" id="startButton" type="button">
+          Começar missão <span class="button-arrow">→</span>
+        </button>
+        <p class="microcopy">Você verá a explicação de cada resposta durante o desafio.</p>
+      </div>
+
+      <div class="hero-visual" aria-label="Ilustração de uma equipe trabalhando em DevOps">
+        <div class="visual-glow"></div>
+        <div class="visual-orbit orbit-one"></div>
+        <div class="visual-orbit orbit-two"></div>
+        <div class="visual-label label-top"><span class="mini-dot purple"></span> COLABORAÇÃO</div>
+        <div class="visual-label label-bottom"><span class="mini-dot pink"></span> ENTREGA CONTÍNUA</div>
+        <div class="infinity-card">
+          <div class="infinity-symbol">∞</div>
+          <div class="infinity-caption">DEVELOPMENT <span>×</span> OPERATIONS</div>
+        </div>
+        <div class="floating-chip chip-code"><span class="chip-icon">{ }</span><span><b>CODE</b><small>versionado</small></span></div>
+        <div class="floating-chip chip-build"><span class="chip-icon">⚙</span><span><b>BUILD</b><small>automatizado</small></span></div>
+        <div class="floating-chip chip-check"><span class="check-symbol">✓</span><span><b>TEST</b><small>validado</small></span></div>
+        <div class="visual-grid"></div>
+      </div>
+      <div class="start-footer"><span>01 / 10</span><span>CONHECIMENTO EM MOVIMENTO</span><span class="footer-line"></span></div>
+    </section>
+
+    <section class="screen quiz-screen" id="quizScreen" aria-live="polite">
+      <aside class="progress-panel">
+        <div class="progress-heading"><span>SUA MISSÃO</span><span class="mission-count" id="missionCount">01—10</span></div>
+        <div class="progress-track"><div class="progress-fill" id="progressFill"></div></div>
+        <div class="progress-stats"><span id="progressPercent">10% concluído</span><span><b id="scoreLive">0</b> pts</span></div>
+        <div class="mission-list" id="missionList">
+          <div class="mission-list-title">ETAPAS</div>
+          <div class="mission-item current" data-step="0"><span class="mission-index">01</span><span>Fundamentos</span><i></i></div>
+          <div class="mission-item" data-step="1"><span class="mission-index">02</span><span>Colaboração</span><i></i></div>
+          <div class="mission-item" data-step="2"><span class="mission-index">03</span><span>Origem</span><i></i></div>
+          <div class="mission-item" data-step="3"><span class="mission-index">04</span><span>Modelo CAMS</span><i></i></div>
+          <div class="mission-item" data-step="4"><span class="mission-index">05</span><span>Cultura</span><i></i></div>
+          <div class="mission-item" data-step="5"><span class="mission-index">06</span><span>Ciclo DevOps</span><i></i></div>
+          <div class="mission-item" data-step="6"><span class="mission-index">07</span><span>CI/CD</span><i></i></div>
+          <div class="mission-item" data-step="7"><span class="mission-index">08</span><span>Ferramentas</span><i></i></div>
+          <div class="mission-item" data-step="8"><span class="mission-index">09</span><span>Na prática</span><i></i></div>
+          <div class="mission-item" data-step="9"><span class="mission-index">10</span><span>Desafio final</span><i></i></div>
+        </div>
+        <div class="sidebar-note"><span class="note-spark">✳</span><p><b>Dica:</b> leia os feedbacks. Eles fazem parte do aprendizado.</p></div>
+      </aside>
+
+      <div class="question-area">
+        <div class="question-topline"><span class="question-category" id="questionCategory">FUNDAMENTOS</span><span class="question-kind" id="questionKind">MÚLTIPLA ESCOLHA</span></div>
+        <div class="question-heading-row"><div><div class="question-number" id="questionNumber">DESAFIO 01</div><h2 id="questionTitle">O que é cultura DevOps?</h2></div><div class="question-decoration" id="questionDecoration">01</div></div>
+        <p class="question-prompt" id="questionPrompt">Selecione a alternativa que melhor representa a proposta da cultura DevOps.</p>
+        <div class="activity-container" id="activityContainer"></div>
+        <div class="feedback-box" id="feedbackBox" hidden>
+          <div class="feedback-icon" id="feedbackIcon">✓</div>
+          <div class="feedback-content"><strong id="feedbackTitle">Muito bem!</strong><p id="feedbackText"></p></div>
+        </div>
+        <div class="question-actions" id="questionActions">
+          <span class="action-hint" id="actionHint">Escolha uma opção para continuar.</span>
+          <button class="primary-button next-button" id="nextButton" type="button" disabled>Confirmar resposta <span class="button-arrow">→</span></button>
+        </div>
+      </div>
+    </section>
+
+    <section class="screen result-screen" id="resultScreen">
+      <div class="result-orbit result-orbit-one"></div><div class="result-orbit result-orbit-two"></div>
+      <div class="result-content">
+        <div class="result-kicker"><span class="status-dot"></span> MISSÃO FINALIZADA</div>
+        <div class="trophy-wrap"><div class="trophy-glow"></div><div class="trophy">✦</div></div>
+        <h1 id="resultTitle">Missão concluída!</h1>
+        <p class="result-description" id="resultDescription">Você percorreu os principais conceitos da cultura DevOps.</p>
+        <div class="score-card">
+          <div class="score-main"><span>SUA PONTUAÇÃO</span><strong><b id="finalScore">0</b><small>/ 10</small></strong></div>
+          <div class="score-divider"></div>
+          <div class="score-detail"><span>APROVEITAMENTO</span><strong id="finalPercent">0%</strong></div>
+          <div class="score-divider"></div>
+          <div class="score-detail"><span>DESAFIOS</span><strong>10/10</strong></div>
+        </div>
+        <div class="result-message" id="resultMessage"></div>
+        <div class="result-actions"><button class="primary-button" id="restartButton" type="button">Jogar novamente <span class="button-arrow">↻</span></button><button class="secondary-button" id="reviewButton" type="button">Voltar ao início</button></div>
+      </div>
+      <div class="result-footer">CULTURA DEVOPS <span>•</span> DESENVOLVIMENTO + OPERAÇÕES</div>
+    </section>
+
+    <footer class="app-footer"><span>MISSÃO DEVOPS <span class="footer-dot">●</span> CULTURA, AUTOMAÇÃO E COLABORAÇÃO</span><span>FEITO PARA APRENDER FAZENDO</span></footer>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
